@@ -143,24 +143,6 @@
               }
             },
             "object_type": "definition_activity"
-          },
-          {
-            "unique_name": "definition_activity_01GTKTLWTIG9S17qgyCnJAGGn8UzJEwY9yQ",
-            "name": "Execute Python Script",
-            "title": "Execute Python Script",
-            "type": "python3.script",
-            "base_type": "activity",
-            "properties": {
-              "action_timeout": 180,
-              "continue_on_failure": false,
-              "display_name": "Execute Python Script",
-              "script": "print ($activity.definition_activity_01GT6IVJU2XPY5uqEPB8wRT3qcU4EAXtvmx.output.response_body$)",
-              "script_arguments": [
-                ""
-              ],
-              "skip_execution": false
-            },
-            "object_type": "definition_activity"
           }
         ]
       }
@@ -212,18 +194,6 @@
         "base_type": "workflow",
         "variables": [
           {
-            "schema_id": "datatype.integer",
-            "properties": {
-              "value": 0,
-              "scope": "local",
-              "name": "urlCounter",
-              "type": "datatype.integer",
-              "is_required": false
-            },
-            "unique_name": "variable_workflow_01GHKJRDV66RP0DwTZws4i1blwlYO3vtg36",
-            "object_type": "variable_workflow"
-          },
-          {
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
@@ -233,6 +203,18 @@
               "is_required": false
             },
             "unique_name": "variable_workflow_01GHKJHE6I3LT6VUwaMPr3vETsG8sbppm7A",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "value": 0,
+              "scope": "local",
+              "name": "urlCounter",
+              "type": "datatype.integer",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01GHKJRDV66RP0DwTZws4i1blwlYO3vtg36",
             "object_type": "variable_workflow"
           }
         ],
