@@ -7,6 +7,18 @@
     "base_type": "workflow",
     "variables": [
       {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "message",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01GZ8BL9P3UQP4FPU5bliVpMLoaBohfKz19",
+        "object_type": "variable_workflow"
+      },
+      {
         "schema_id": "datatype.string",
         "properties": {
           "value": "c7f09603-e531-457c-9702-af62d08580e1",
@@ -16,6 +28,30 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01GT6XU0F4GAP4jz0MIe6qjS4sojQ6y7NDq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "room",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01GZ837VKTB382H88Dq1n1e2s8od24P6Nea",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "authentication",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01GZ84SP0NS764zhRZ4n0pYrgV9UdfAvbtE",
         "object_type": "variable_workflow"
       }
     ],
@@ -73,6 +109,33 @@
           "display_name": "Split String",
           "input_string": "$activity.definition_activity_01GT6FIYS1BUF32WYUfm53QBuXMaswAOQeG.output.variable_workflow_01GHKJHE6I3LT6VUwaMPr3vETsG8sbppm7A$",
           "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01GYSMNNUGOG21mWnOmd1tlSWdu6Q53T0tb",
+        "name": "Webex Teams - Create Room",
+        "title": "Webex Teams - Create Room",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Webex Teams - Create Room",
+          "input": {
+            "variable_workflow_01DSC4X9KXPKS2Qmb9Ztstye0zYwKscAn7P": "$workflow.definition_workflow_01GT6ET6VYTH21COyLHZHoK1t4u2ZEZxbvH.local.variable_workflow_01GZ837VKTB382H88Dq1n1e2s8od24P6Nea$",
+            "variable_workflow_01DSC61IB74B8425TxRduaFPThLQodDkVRF": "Domain results",
+            "variable_workflow_01DSC6J1J5W4R73lPbvtKw7MPvfADwgQY0l": ""
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01GU8S0NC49A774Jl126sOp7qi5WHVnJf18",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_01DSC03B74DRH2SitgOVw4CXxRxTmM0nFYb"
         },
         "object_type": "definition_activity"
       },
@@ -143,6 +206,91 @@
               }
             },
             "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01GZB64NNW47A4oyRM1AYb4V4vu34volKu2",
+            "name": "Split String",
+            "title": "Split String",
+            "type": "core.splitstring",
+            "base_type": "activity",
+            "properties": {
+              "boundaries": [
+                {
+                  "boundary": ","
+                }
+              ],
+              "continue_on_failure": false,
+              "display_name": "Split String",
+              "input_string": "$activity.definition_activity_01GT6IVJU2XPY5uqEPB8wRT3qcU4EAXtvmx.output.response_body$",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01GZBJW52ADL02rZzvCWChAReyZsKbC5SPu",
+            "name": "For Each",
+            "title": "For Each",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "For Each",
+              "skip_execution": false,
+              "source_array": "$activity.definition_activity_01GZB64NNW47A4oyRM1AYb4V4vu34volKu2.output.parts$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01H5GAZKGB4NP1kQ8jlGE6fSI7BZaqhBj97",
+                "name": "JSONPath Query",
+                "title": "JSONPath Query",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "JSONPath Query",
+                  "input_json": "$activity.definition_activity_01GZBJW52ADL02rZzvCWChAReyZsKbC5SPu.input.source_array[@]$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "output.first_seen",
+                      "jsonpath_query_name": "outputfirstseen",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01GYSSEM1Y60F26Gu81cgL5IOpr6UVbqb83",
+                "name": "Webex Teams - Post Message to Room",
+                "title": "Webex Teams - Post Message to Room",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Webex Teams - Post Message to Room",
+                  "input": {
+                    "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$workflow.definition_workflow_01GT6ET6VYTH21COyLHZHoK1t4u2ZEZxbvH.local.variable_workflow_01GZ8BL9P3UQP4FPU5bliVpMLoaBohfKz19$",
+                    "variable_workflow_01FGYY44G3TK951Crpnd8g2izonyM4bFtpW": "$activity.definition_activity_01GYSMNNUGOG21mWnOmd1tlSWdu6Q53T0tb.output.variable_workflow_01DSCCQ6G8XUD4wYyzny05L2cOxgM4nLJCx$",
+                    "variable_workflow_01FGYY44G3UPV3heGGc3vXCV47YL5WoI2X6": "$activity.definition_activity_01GZBJW52ADL02rZzvCWChAReyZsKbC5SPu.input.source_array[@]$",
+                    "variable_workflow_01FGYZ9BV4QTP19CuMwcW8QywvCP9ymx2BZ": ""
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_01GU8S0NC49A774Jl126sOp7qi5WHVnJf18",
+                    "target_type": "web-service.endpoint"
+                  },
+                  "workflow_id": "definition_workflow_01FGYY44YU521254ygN3Le0In0kEHpiPNpf"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
           }
         ]
       }
@@ -182,6 +330,23 @@
         "no_runtime_user": true,
         "protocol": "https"
       }
+    },
+    "definition_target_01GU8S0NC49A774Jl126sOp7qi5WHVnJf18": {
+      "unique_name": "definition_target_01GU8S0NC49A774Jl126sOp7qi5WHVnJf18",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "Webex Teams",
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
     }
   },
   "subworkflows": [
@@ -194,18 +359,6 @@
         "base_type": "workflow",
         "variables": [
           {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "output_urls_comma_delimited",
-              "type": "datatype.string",
-              "is_required": false
-            },
-            "unique_name": "variable_workflow_01GHKJHE6I3LT6VUwaMPr3vETsG8sbppm7A",
-            "object_type": "variable_workflow"
-          },
-          {
             "schema_id": "datatype.integer",
             "properties": {
               "value": 0,
@@ -215,6 +368,18 @@
               "is_required": false
             },
             "unique_name": "variable_workflow_01GHKJRDV66RP0DwTZws4i1blwlYO3vtg36",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "output_urls_comma_delimited",
+              "type": "datatype.string",
+              "is_required": false
+            },
+            "unique_name": "variable_workflow_01GHKJHE6I3LT6VUwaMPr3vETsG8sbppm7A",
             "object_type": "variable_workflow"
           }
         ],
@@ -495,5 +660,9 @@
         ]
       }
     }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_01DSC03B74DRH2SitgOVw4CXxRxTmM0nFYb",
+    "definition_workflow_01FGYY44YU521254ygN3Le0In0kEHpiPNpf"
   ]
 }
