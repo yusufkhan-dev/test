@@ -1,0 +1,135 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01HTOT9B4ITCN1Lo5FrNzvryzIDRKE2Pfri",
+    "name": "Webex post message integration",
+    "title": "Webex post message integration",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "token",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01HTRDT5U77NU5yEaj5sdO35PwFB5KCCIi0",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Webex post message integration",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01HTP9F39NFB85yiFWC8gC6kDSi3jgxTu7M",
+        "name": "HTTP Request",
+        "title": "Send Webex message",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"toPersonId\": \"Y2lzY29zcGFyazovL3VzL1BFT1BMRS9kYmViNTI0MC0wYmVlLTQwNDYtOTJlNS01ZGE2N2YwOGU5NjY\",\n  \"text\": \"Good Morning Abu Bakr\"\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01HTOT9B4ITCN1Lo5FrNzvryzIDRKE2Pfri.local.variable_workflow_01HTRDT5U77NU5yEaj5sdO35PwFB5KCCIi0$"
+            }
+          ],
+          "display_name": "Send Webex message",
+          "method": "POST",
+          "relative_url": "/v1/messages",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01FWYLOO0J2XM7SH55NFSKhqCgLoFpGLcPt"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerschedule_01HTP9C1R6XIT7W4JZWecTLxJmzpeezysF3": {
+      "workflow_id": "definition_workflow_01HTOT9B4ITCN1Lo5FrNzvryzIDRKE2Pfri",
+      "name": "Daily at 8am",
+      "title": "",
+      "lowercase_name": "schedule.daily_at_8am",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01HTP963PYJHA05hYpQ3uHpHi72FGgYA5PU",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerschedule_01HTP9C1R6XIT7W4JZWecTLxJmzpeezysF3",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01HTP963PYJHA05hYpQ3uHpHi72FGgYA5PU": {
+      "unique_name": "schedule_01HTP963PYJHA05hYpQ3uHpHi72FGgYA5PU",
+      "name": "Daily",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Etc/GMT+0",
+        "starttime": "08:00",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Daily",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "targets": {
+    "definition_target_01FWYLOO0J2XM7SH55NFSKhqCgLoFpGLcPt": {
+      "unique_name": "definition_target_01FWYLOO0J2XM7SH55NFSKhqCgLoFpGLcPt",
+      "name": "Webex Teams",
+      "title": "Webex Teams",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": false,
+        "display_name": "Webex Teams",
+        "host": "webexapis.com",
+        "ignore_proxy": false,
+        "no_runtime_user": true,
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  }
+}
