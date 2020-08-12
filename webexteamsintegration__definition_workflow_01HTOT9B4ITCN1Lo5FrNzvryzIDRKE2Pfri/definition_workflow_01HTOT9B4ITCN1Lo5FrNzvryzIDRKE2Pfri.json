@@ -88,8 +88,34 @@
       "base_type": "trigger",
       "ref_id": "schedule_01HTP963PYJHA05hYpQ3uHpHi72FGgYA5PU",
       "version": "",
-      "disabled": false,
+      "disabled": true,
       "unique_name": "triggerschedule_01HTP9C1R6XIT7W4JZWecTLxJmzpeezysF3",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_01HUMMXE7AYXX1K1cVG97sbi5OTalIn9xgD": {
+      "workflow_id": "definition_workflow_01HTOT9B4ITCN1Lo5FrNzvryzIDRKE2Pfri",
+      "name": "1pm test",
+      "title": "",
+      "lowercase_name": "schedule.1pm_test",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01HUMM4OP9HFT4OPgsNHPjp5UtV8pdtU39I",
+      "version": "",
+      "disabled": true,
+      "unique_name": "triggerschedule_01HUMMXE7AYXX1K1cVG97sbi5OTalIn9xgD",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_01HUN3LD1LM7Q2M2b8yTGi6uNUnpw7gAGAy": {
+      "workflow_id": "definition_workflow_01HTOT9B4ITCN1Lo5FrNzvryzIDRKE2Pfri",
+      "name": "8am",
+      "title": "",
+      "lowercase_name": "schedule.8am",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01HUN3K6P7GVV0vvpDMh8vWkLmxYUuQe1SH",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_01HUN3LD1LM7Q2M2b8yTGi6uNUnpw7gAGAy",
       "object_type": "triggerschedule"
     }
   },
@@ -107,6 +133,42 @@
         "interval_minutes": 0,
         "number_of_times": 1,
         "display_name": "Daily",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    },
+    "schedule_01HUMM4OP9HFT4OPgsNHPjp5UtV8pdtU39I": {
+      "unique_name": "schedule_01HUMM4OP9HFT4OPgsNHPjp5UtV8pdtU39I",
+      "name": "test 1pm",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Europe/Dublin",
+        "starttime": "13:00",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "test 1pm",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    },
+    "schedule_01HUN3K6P7GVV0vvpDMh8vWkLmxYUuQe1SH": {
+      "unique_name": "schedule_01HUN3K6P7GVV0vvpDMh8vWkLmxYUuQe1SH",
+      "name": "8am daily",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "Europe/Dublin",
+        "starttime": "08:00",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "8am daily",
         "description": ""
       },
       "version": "1.0.0",
