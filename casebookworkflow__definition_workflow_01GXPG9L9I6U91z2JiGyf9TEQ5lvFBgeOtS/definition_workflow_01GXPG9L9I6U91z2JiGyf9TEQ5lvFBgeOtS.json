@@ -1,21 +1,21 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS",
-    "name": "ACSC Advisory",
-    "title": "ACSC Advisory",
+    "name": "TALOS blog ",
+    "title": "TALOS blog ",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "datatype.secure_string",
+        "schema_id": "datatype.string",
         "properties": {
-          "value": "*****",
+          "value": "yusufkhan47@yahoo.co.uk",
           "scope": "local",
-          "name": "webex_token",
-          "type": "datatype.secure_string",
-          "is_required": false
+          "name": "email_recipient",
+          "type": "datatype.string",
+          "is_required": true
         },
-        "unique_name": "variable_workflow_01H5PBFZNRTRM1ITi4jKKFazkNjSetMigxU",
+        "unique_name": "variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn",
         "object_type": "variable_workflow"
       },
       {
@@ -23,23 +23,12 @@
         "properties": {
           "value": "",
           "scope": "local",
-          "name": "indicators",
+          "name": "devenvironment",
           "type": "datatype.string",
+          "description": "http://www.dev78207",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01GXQKHBW4AFW29niot1QVadlr4TZXMlo9n",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "local",
-          "name": "webex_message",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01H0BHHV5EU3T1vdqMdSWjYye4b59AzRVGT",
+        "unique_name": "variable_workflow_01J4XN9YKN5OR7cB1Qaw8Ou1Hdb2P3rainB",
         "object_type": "variable_workflow"
       },
       {
@@ -57,20 +46,20 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": " ",
+          "value": "",
           "scope": "local",
-          "name": "CR",
+          "name": "indicators",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01H2NYQFHSL1I4P7S3blZGh0sduKYT9XDMd",
+        "unique_name": "variable_workflow_01GXQKHBW4AFW29niot1QVadlr4TZXMlo9n",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "input",
+          "value": "ysecurex@gmail.com",
+          "scope": "local",
           "name": "email_sender",
           "type": "datatype.string",
           "is_required": true
@@ -82,12 +71,12 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "email_recipient",
+          "scope": "local",
+          "name": "webex_message",
           "type": "datatype.string",
-          "is_required": true
+          "is_required": false
         },
-        "unique_name": "variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn",
+        "unique_name": "variable_workflow_01H0BHHV5EU3T1vdqMdSWjYye4b59AzRVGT",
         "object_type": "variable_workflow"
       },
       {
@@ -101,6 +90,30 @@
         },
         "unique_name": "variable_workflow_01H5OVJIZ8K8C5N0Ve7rS0GRJe7MggNdzjX",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "local",
+          "name": "webex_token",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01H5PBFZNRTRM1ITi4jKKFazkNjSetMigxU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": " ",
+          "scope": "local",
+          "name": "CR",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01H2NYQFHSL1I4P7S3blZGh0sduKYT9XDMd",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -109,7 +122,7 @@
       },
       "delete_workflow_instance": false,
       "description": "The playbook steps:\n\n1.\tGet Indicators - Make a generic http request to ACSC hosted IOC csv file, do some clean up and store the indicators\n2.\tParse IOCs - from raw text using SecureX Threat Response Inspect API\n3.\tEnrich Observables - with SecureX Threat Response Enrich API to find any global sightings (in integrated threat feeds) and more importantly local sightings/targets (in integrated security modules like Umbrella, AMP, etc.)\n4.\tShare Targets - For each module queried, if any targets founds, post on webex teams and/or send an email.\n5.\tCase Management - Create a new casebook the first time any targets are found and on subsequent runs keep updating the casebook when targets found.\n",
-      "display_name": "ACSC Advisory",
+      "display_name": "TALOS blog ",
       "runtime_user": {
         "override_target_runtime_user": false,
         "specify_on_workflow_start": false,
@@ -173,8 +186,9 @@
               "skip_execution": false,
               "target": {
                 "override_workflow_target": true,
-                "target_id": "definition_target_01GXQ1K5HEQUJ0UxQ7G2xf2A7ud5R8dCGIo"
-              }
+                "target_id": "definition_target_01H2HPUTD521U6xZCMTTwUVWART8BSxFwHG"
+              },
+              "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
             },
             "object_type": "definition_activity"
           },
@@ -564,6 +578,85 @@
                 "object_type": "definition_activity",
                 "actions": [
                   {
+                    "unique_name": "definition_activity_01J4HDBY9OF9P2AaLZaTAOveNB9WqaDSsgd",
+                    "name": "Service Now - Create Incident",
+                    "title": "Service Now - Create Incident",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Service Now - Create Incident",
+                      "input": {
+                        "variable_workflow_01C0CK2MY2SLG1FXph6ZHp7iHmRw1KvUFlN": "Information for ServiceNow Incident",
+                        "variable_workflow_01FGYF0DUR8HV2TMpEKctsYjQR4mzjD5OTu": "**Module:** $activity.definition_activity_01H09MMM0066W0Qj3WgfQQivlYfQnViYJGl.input.source_array[@].module$ \\n**Found sightings:*$activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.row_count$  \\n**Target details:** [$activity.Read Targets.output.Output[0].observables$]  \\n**Time:** [$activity.Read Targets.output.Output[0].observed_time$]",
+                        "variable_workflow_01FGYGCZL5M2E1m1O5tvVVn0DVzVTLwytei": 1,
+                        "variable_workflow_01FGYGPFJYM4L5aVpzNOhRwMmzKJDofqufe": 2,
+                        "variable_workflow_01FGYGZ0OYYNM5pWjyyreMjNHDjusjNe8jx": "",
+                        "variable_workflow_01FGYI8HES41K63G3UzMinBH3iApm37fBGt": "yusufkhan",
+                        "variable_workflow_01FMQD0HIJIDU5kce0VNx4HQiMYjMfUvBlj": "v2"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01IWXF91FHMFY2H0XMMpX4euqKeL9ZfXfQa",
+                        "target_type": "web-service.endpoint"
+                      },
+                      "workflow_id": "definition_workflow_01C0BYD0GI1KZ0mxScCSxVrfX70zrUdqLlW"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J4UW92ETU0C3AygMMMu9yoN6hAyRzejgh",
+                    "name": "HTTP Request",
+                    "title": "Service Now- Get Incident",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "display_name": "Service Now- Get Incident",
+                      "method": "GET",
+                      "relative_url": "now/table/incident/$activity.definition_activity_01J4HDBY9OF9P2AaLZaTAOveNB9WqaDSsgd.output.variable_workflow_01C0F7F9L7IYM3YXHCizJhunwKtPlSJWEWM$",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_01IWXF91FHMFY2H0XMMpX4euqKeL9ZfXfQa"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01J4WAW87NUWQ1qyMTrJCmgS2NPcSW8hMYF",
+                    "name": "JSONPath Query",
+                    "title": "JSONPath Query",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "JSONPath Query",
+                      "input_json": "$activity.definition_activity_01J4HDBY9OF9P2AaLZaTAOveNB9WqaDSsgd.output.variable_workflow_01C0C3F7WJAUK0TfekEO4H2SeSvFJxIC38A$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "result.opened_by.value",
+                          "jsonpath_query_name": "openedlink",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
                     "unique_name": "definition_activity_01H0BO0Z5OBC43pabXROdf3EM6uS2f9uvY2",
                     "name": "Set Variables",
                     "title": "Construct Webex Team Message",
@@ -576,7 +669,7 @@
                       "variables_to_update": [
                         {
                           "variable_to_update": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H0BHHV5EU3T1vdqMdSWjYye4b59AzRVGT$",
-                          "variable_value_new": "**Module:** $activity.definition_activity_01H09MMM0066W0Qj3WgfQQivlYfQnViYJGl.input.source_array[@].module$  \\n**Found sightings:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.row_count$  \\n**Target details:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.read_table_from_json[0].observables$  \\n**Time:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.read_table_from_json[0].observed_time$"
+                          "variable_value_new": "**Module:** $activity.definition_activity_01H09MMM0066W0Qj3WgfQQivlYfQnViYJGl.input.source_array[@].module$  \\n**Found sightings:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.row_count$  \\n**Target details:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.read_table_from_json[0].observables$  \\n**Time:** $activity.definition_activity_01H09N4KGSUTM1URrluQqHI3j5Aw2VGu62z.output.read_table_from_json[0].observed_time$\\n[Servicenow Incident](https://dev78207.service-now.com/nav_to.do?uri=incident.do?sys_id=$activity.definition_activity_01J4HDBY9OF9P2AaLZaTAOveNB9WqaDSsgd.output.variable_workflow_01C0F7F9L7IYM3YXHCizJhunwKtPlSJWEWM$)"
                         }
                       ]
                     },
@@ -632,7 +725,7 @@
                       "continue_on_failure": true,
                       "display_name": "Webex Teams - Post Message to Room",
                       "input": {
-                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5PBFZNRTRM1ITi4jKKFazkNjSetMigxU$",
+                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM.global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM$",
                         "variable_workflow_01FGYY44G3TK951Crpnd8g2izonyM4bFtpW": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5OVJIZ8K8C5N0Ve7rS0GRJe7MggNdzjX$",
                         "variable_workflow_01FGYY44G3UPV3heGGc3vXCV47YL5WoI2X6": "",
                         "variable_workflow_01FGYZ9BV4QTP19CuMwcW8QywvCP9ymx2BZ": "$activity.definition_activity_01H2MCDAZK0DJ0sTj4XDPlowUcFU3kEZz1s.output.result_string$"
@@ -673,7 +766,7 @@
                       "continue_if_one_address_valid": false,
                       "continue_on_failure": true,
                       "display_name": "Send Email",
-                      "from": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.input.variable_workflow_01H5ND5JLMKOL1GGwNzv2yc4Epid2EXThUW$",
+                      "from": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5ND5JLMKOL1GGwNzv2yc4Epid2EXThUW$",
                       "html": true,
                       "runtime_user": {
                         "override_target_runtime_user": true,
@@ -685,7 +778,7 @@
                         "override_workflow_target": true,
                         "target_id": "definition_target_01H2XVG347BDV6wnJwP8lBId0b7PbosnmZX"
                       },
-                      "to": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.input.variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn$"
+                      "to": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn$"
                     },
                     "object_type": "definition_activity"
                   }
@@ -739,7 +832,7 @@
                       "continue_on_failure": true,
                       "display_name": "Webex Teams - Post Message to Room",
                       "input": {
-                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5PBFZNRTRM1ITi4jKKFazkNjSetMigxU$",
+                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM.global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM$",
                         "variable_workflow_01FGYY44G3TK951Crpnd8g2izonyM4bFtpW": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5OVJIZ8K8C5N0Ve7rS0GRJe7MggNdzjX$",
                         "variable_workflow_01FGYY44G3UPV3heGGc3vXCV47YL5WoI2X6": "",
                         "variable_workflow_01FGYZ9BV4QTP19CuMwcW8QywvCP9ymx2BZ": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H0BHHV5EU3T1vdqMdSWjYye4b59AzRVGT$"
@@ -767,7 +860,7 @@
                       "continue_if_one_address_valid": false,
                       "continue_on_failure": true,
                       "display_name": "Send Email",
-                      "from": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.input.variable_workflow_01H5ND5JLMKOL1GGwNzv2yc4Epid2EXThUW$",
+                      "from": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5ND5JLMKOL1GGwNzv2yc4Epid2EXThUW$",
                       "html": true,
                       "runtime_user": {
                         "override_target_runtime_user": true,
@@ -779,7 +872,7 @@
                         "override_workflow_target": true,
                         "target_id": "definition_target_01H2XVG347BDV6wnJwP8lBId0b7PbosnmZX"
                       },
-                      "to": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.input.variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn$"
+                      "to": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5NDR871RTA4dDba4PVbzRrHGbUISS7nn$"
                     },
                     "object_type": "definition_activity"
                   }
@@ -832,6 +925,46 @@
                 }
               },
               "workflow_id": "definition_workflow_01779LB6MV0P02kvka9TGV5cEam84NrCTy4"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01H5OB8OYTE7L06ZOl0bWpp3BLWOFi1ivmO",
+            "name": "CTR Create Casebook",
+            "title": "CTR Create Casebook",
+            "type": "workflow.atomic_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "CTR Create Casebook",
+              "input": {
+                "variable_workflow_01E8OQUDV95VA45dnDR0Kzm5HlMxNSnk7HH": "$activity.definition_activity_01H5OI7ZFC55I4iNTnSGQd8cs4uasJzC5tV.output.variable_workflow_01BNOOXA3G6MV1PGAvsfZOKDdMYcE6XS726$",
+                "variable_workflow_01FI7GJDK40MI6qNg2jcng0YaHlmz0Zgwq5": "SecureX Created this casebook for TALOS weekly blog Observables",
+                "variable_workflow_01FI7JJEVXRFA5s9maRdVwlqV7ENc6KhST2": "TALOS Weekly Update 21st October Casebook",
+                "variable_workflow_01FI7NA9QZI9I46crflRbf7I6zIfajxuHrX": "$activity.definition_activity_01GZ8U4R6533X3CAeJH39zViJ5tl9PJ6fHz.output.variable_workflow_01C9F6MICKTEV29S3eyPNTv36WARzQzopHd$",
+                "variable_workflow_01FRLITVY3NO678mmPZHG5lCdqLjEyY2j1h": "raw"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target_group_criteria": true,
+                "target_group": {
+                  "run_on_all_targets": false,
+                  "use_criteria": {
+                    "choose_target_using_algorithm": "choose_first_with_matching_criteria",
+                    "conditions": [
+                      {
+                        "left_operand": "$targetgroup.web-service endpoint.input.display_name$",
+                        "operator": "eq",
+                        "right_operand": "Private_CTIA_Target"
+                      }
+                    ]
+                  }
+                }
+              },
+              "workflow_id": "definition_workflow_01DS6ELBOO8YR3uFJZju566LqiqR18VlE6r"
             },
             "object_type": "definition_activity"
           },
@@ -967,7 +1100,7 @@
                       "continue_on_failure": false,
                       "display_name": "Webex Teams - Post Message to Room",
                       "input": {
-                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5PBFZNRTRM1ITi4jKKFazkNjSetMigxU$",
+                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM.global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM$",
                         "variable_workflow_01FGYY44G3TK951Crpnd8g2izonyM4bFtpW": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.local.variable_workflow_01H5OVJIZ8K8C5N0Ve7rS0GRJe7MggNdzjX$",
                         "variable_workflow_01FGYY44G3UPV3heGGc3vXCV47YL5WoI2X6": "",
                         "variable_workflow_01FGYZ9BV4QTP19CuMwcW8QywvCP9ymx2BZ": "**SecureX has updated Threat Reponse Casebook.**  \\nCasebook ID: $global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku.global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku$"
@@ -1017,7 +1150,7 @@
                 "object_type": "definition_activity",
                 "actions": [
                   {
-                    "unique_name": "definition_activity_01H5OB8OYTE7L06ZOl0bWpp3BLWOFi1ivmO",
+                    "unique_name": "definition_activity_01J4YY5F4A2JF2AJmjEujxkZHSq0WMKVpfV",
                     "name": "CTR Create Casebook",
                     "title": "CTR Create Casebook",
                     "type": "workflow.atomic_workflow",
@@ -1027,8 +1160,8 @@
                       "display_name": "CTR Create Casebook",
                       "input": {
                         "variable_workflow_01E8OQUDV95VA45dnDR0Kzm5HlMxNSnk7HH": "$activity.definition_activity_01H5OI7ZFC55I4iNTnSGQd8cs4uasJzC5tV.output.variable_workflow_01BNOOXA3G6MV1PGAvsfZOKDdMYcE6XS726$",
-                        "variable_workflow_01FI7GJDK40MI6qNg2jcng0YaHlmz0Zgwq5": "SecureX Created this casebook for ACSC Advisory Observables",
-                        "variable_workflow_01FI7JJEVXRFA5s9maRdVwlqV7ENc6KhST2": "ACSC Advisory Casebook",
+                        "variable_workflow_01FI7GJDK40MI6qNg2jcng0YaHlmz0Zgwq5": "SecureX Created this casebook for TALOS weekly blog Observables",
+                        "variable_workflow_01FI7JJEVXRFA5s9maRdVwlqV7ENc6KhST2": "TALOS Weekly Update 21st October Casebook",
                         "variable_workflow_01FI7NA9QZI9I46crflRbf7I6zIfajxuHrX": "$activity.definition_activity_01GZ8U4R6533X3CAeJH39zViJ5tl9PJ6fHz.output.variable_workflow_01C9F6MICKTEV29S3eyPNTv36WARzQzopHd$",
                         "variable_workflow_01FRLITVY3NO678mmPZHG5lCdqLjEyY2j1h": "raw"
                       },
@@ -1101,7 +1234,7 @@
                       "continue_on_failure": false,
                       "display_name": "Webex Teams - Post Message to Room",
                       "input": {
-                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$global.01HM3OP84PVIF6W1DhqqjsJJBkWHoLfExmt.global.01HM3OP84PVIF6W1DhqqjsJJBkWHoLfExmt$",
+                        "variable_workflow_01FGYY44G3MZ55amJu9YqgUeKS8GT49bZx3": "$global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM.global.variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM$",
                         "variable_workflow_01FGYY44G3TK951Crpnd8g2izonyM4bFtpW": "$workflow.definition_workflow_01GXPG9L9I6U91z2JiGyf9TEQ5lvFBgeOtS.input.variable_workflow_01H5OVJIZ8K8C5N0Ve7rS0GRJe7MggNdzjX$",
                         "variable_workflow_01FGYY44G3UPV3heGGc3vXCV47YL5WoI2X6": "SecureX have created Threat Reponse Casebook. Casebook ID: $global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku.global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku$",
                         "variable_workflow_01FGYZ9BV4QTP19CuMwcW8QywvCP9ymx2BZ": "**SecureX has created Threat Reponse Casebook.**  \\nCasebook ID: $global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku.global.variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku$"
@@ -1142,20 +1275,21 @@
     ]
   },
   "targets": {
-    "definition_target_01GXQ1K5HEQUJ0UxQ7G2xf2A7ud5R8dCGIo": {
-      "unique_name": "definition_target_01GXQ1K5HEQUJ0UxQ7G2xf2A7ud5R8dCGIo",
-      "name": "ACSC Advisory Target",
-      "title": "ACSC Advisory Target",
+    "definition_target_01H2HPUTD521U6xZCMTTwUVWART8BSxFwHG": {
+      "unique_name": "definition_target_01H2HPUTD521U6xZCMTTwUVWART8BSxFwHG",
+      "name": "test",
+      "title": "test",
       "type": "web-service.endpoint",
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "disable_certificate_validation": false,
-        "display_name": "ACSC Advisory Target",
-        "host": "www.cyber.gov.au",
+        "disable_certificate_validation": true,
+        "display_name": "test",
+        "host": "blog.talosintelligence.com",
         "ignore_proxy": false,
         "no_runtime_user": true,
-        "path": "/sites/default/files/2020-06/ACSC-Advisory-2020-008-Copy-Paste-Compromises-Indicators-of-Compromise.csv",
+        "path": "2020/10/threat-source-newsletter-for-oct-1-2020.html",
+        "port": 443,
         "protocol": "https"
       }
     },
@@ -1174,6 +1308,24 @@
         "protocol": "SMTP",
         "server": "smtp.gmail.com"
       }
+    },
+    "definition_target_01IWXF91FHMFY2H0XMMpX4euqKeL9ZfXfQa": {
+      "unique_name": "definition_target_01IWXF91FHMFY2H0XMMpX4euqKeL9ZfXfQa",
+      "name": "servicenow",
+      "title": "servicenow",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01IWXEYSI5B740JieoR2iz004GlEpbbkcpl",
+        "disable_certificate_validation": false,
+        "display_name": "servicenow",
+        "host": "dev78207.service-now.com",
+        "ignore_proxy": false,
+        "no_runtime_user": false,
+        "path": "/api",
+        "protocol": "https"
+      }
     }
   },
   "runtime_users": {
@@ -1188,6 +1340,20 @@
         "display_name": "Gmail_Credentials",
         "password": "*****",
         "sender": "*****"
+      }
+    },
+    "definition_runtime_user_01IWXEYSI5B740JieoR2iz004GlEpbbkcpl": {
+      "unique_name": "definition_runtime_user_01IWXEYSI5B740JieoR2iz004GlEpbbkcpl",
+      "name": "servicenow credentials",
+      "title": "servicenow credentials",
+      "type": "runtime_user.web-service_basic_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "auth_option": "*****",
+        "basic_password": "*****",
+        "basic_username": "*****",
+        "display_name": "servicenow credentials"
       }
     }
   },
@@ -1215,6 +1381,17 @@
     }
   },
   "variables": {
+    "variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM": {
+      "unique_name": "variable_01H0BNK7MLU3M6Bcnlz5qZqYbUrp2zVjnTM",
+      "properties": {
+        "value": "*****",
+        "scope": "global",
+        "name": "Webex Teams Bot Token",
+        "type": "datatype.secure_string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    },
     "variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku": {
       "unique_name": "variable_01H5OJTIZW5CP2o27dFtWQ7Rw2m0l6FQDku",
       "properties": {
@@ -1228,9 +1405,10 @@
     }
   },
   "atomic_workflows": [
-    "definition_workflow_01779LB6MV0P02kvka9TGV5cEam84NrCTy4",
     "definition_workflow_01C9F1VJ1I5KH26f860hJC5zDSD33548bYS",
+    "definition_workflow_01C0BYD0GI1KZ0mxScCSxVrfX70zrUdqLlW",
+    "definition_workflow_01DS6ELBOO8YR3uFJZju566LqiqR18VlE6r",
     "definition_workflow_01FGYY44YU521254ygN3Le0In0kEHpiPNpf",
-    "definition_workflow_01DS6ELBOO8YR3uFJZju566LqiqR18VlE6r"
+    "definition_workflow_01779LB6MV0P02kvka9TGV5cEam84NrCTy4"
   ]
 }
